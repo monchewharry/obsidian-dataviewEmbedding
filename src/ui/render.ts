@@ -43,9 +43,9 @@ async function renderCompactMarkdownForInlineFieldLivePreview(
 
     let paragraph = tmpContainer.querySelector(":scope > p");
     if (tmpContainer.childNodes.length == 1 && paragraph) {
-        container.replaceChildren(...paragraph.childNodes);
+        container.replaceChildren(...Array.from(paragraph.childNodes));
     } else {
-        container.replaceChildren(...tmpContainer.childNodes);
+        container.replaceChildren(...Array.from(tmpContainer.childNodes));
     }
 
     tmpContainer.remove();
