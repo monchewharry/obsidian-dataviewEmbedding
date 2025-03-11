@@ -97,9 +97,9 @@ export interface DataArray<T> {
     none(f: ArrayFunc<T, boolean>): boolean;
 
     /** Return the first element in the data array. Returns undefined if the array is empty. */
-    first(): T;
+    first(): T | undefined;
     /** Return the last element in the data array. Returns undefined if the array is empty. */
-    last(): T;
+    last(): T | undefined;
 
     /** Map every element in this data array to the given key, and then flatten it.*/
     to(key: string): DataArray<any>;
@@ -405,10 +405,10 @@ class DataArrayImpl<T> implements DataArray<T> {
         return this.values.every((v, i, a) => !f(v, i, a));
     }
 
-    public first(): T {
+    public first(): T | undefined {
         return this.values.length > 0 ? this.values[0] : undefined;
     }
-    public last(): T {
+    public last(): T | undefined {
         return this.values.length > 0 ? this.values[this.values.length - 1] : undefined;
     }
 

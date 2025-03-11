@@ -52,7 +52,7 @@ export async function replaceInlineFields(ctx: MarkdownPostProcessorContext, ini
 
     // Replace the container children with the new rendered children.
     // TODO: Replace this with a dom-to-dom diff to reduce the actual amount of updates.
-    init.container.replaceChildren(...template.content.childNodes);
+    init.container.replaceChildren(...Array.from(template.content.childNodes));
     let inlineFieldsFromText: InlineField[] | undefined;
     let hasRetrievedText: boolean = false;
     for (let index = 0; index < inlineFields.length; index++) {
