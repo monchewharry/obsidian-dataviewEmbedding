@@ -359,7 +359,7 @@ export function inlinePlugin(app: App, index: FullIndex, settings: DataviewSetti
                     return;
                 }
 
-                const tokenProps = type.prop<String>(tokenClassNodeProp);
+                const tokenProps = type.prop<String>(tokenClassNodeProp) as string;
                 const props = new Set(tokenProps?.split(" "));
                 const classes = getCssClasses(props);
 
